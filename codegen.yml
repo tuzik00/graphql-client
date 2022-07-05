@@ -1,0 +1,14 @@
+generates:
+  ./src/graphql.gen.ts:
+    schema: http://localhost:4000/graphql
+    documents:
+      - './src/graphql/**/*.graphql'
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-react-apollo
+    config:
+      withHooks: true
+      constEnums: true
+      immutableTypes: true
+      enumPrefix: false

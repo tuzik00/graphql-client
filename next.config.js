@@ -12,6 +12,7 @@ module.exports = withPlugins(
     publicRuntimeConfig: {
       PORT: process.env.PORT,
       APOLLO_GATEWAY: process.env.APOLLO_GATEWAY,
+      APOLLO_GATEWAY_WS: process.env.APOLLO_GATEWAY_WS,
     }
   }
 )

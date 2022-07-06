@@ -1,6 +1,3 @@
-query GetAuthor {
-  author {
-    id
-    name
-  }
+subscription Sub {
+  numberIncremented
 }

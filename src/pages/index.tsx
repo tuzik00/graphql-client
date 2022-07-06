@@ -1,12 +1,24 @@
 import React from 'react';
 import type { NextPageType } from '@/types/next';
-import { useGetAuthorQuery } from '@/graphql.gen';
+import { useSubSubscription } from '@/graphql.gen';
 
 const MainPage: NextPageType = () => {
-  const { data } = useGetAuthorQuery();
+  const { data } = useSubSubscription({
+    onSubscriptionData(){
+      console.log(data)
+    }
+  });
 
   return (
-    <span>{data?.author.name}</span>
+    <div>
+      <input
+        type="text"
+        onChange={(e) => {
+
+        }}
+      />
+      <span>{data?.numberIncremented}</span>
+    </div>
   )
 }
 

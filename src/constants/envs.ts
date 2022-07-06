@@ -10,3 +10,5 @@ const {
 
 export const PORT = publicRuntimeConfig?.PORT;
 export const APOLLO_GATEWAY = publicRuntimeConfig?.APOLLO_GATEWAY;
+export const APOLLO_GATEWAY_WS = publicRuntimeConfig?.APOLLO_GATEWAY_WS;
+

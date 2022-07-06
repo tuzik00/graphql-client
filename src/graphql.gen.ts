@@ -13,79 +13,50 @@ export type Scalars = {
   Boolean: boolean;
   Int: number;
   Float: number;
-  _Any: any;
-  _FieldSet: any;
 };
 
-/** Some type description */
-export type Author = {
-  readonly __typename?: 'Author';
-  /** Some type description */
-  readonly id: Scalars['ID'];
-  /** Some type description */
-  readonly name?: Maybe<Scalars['String']>;
-};
-
-/** Some type description */
 export type Query = {
   readonly __typename?: 'Query';
-  readonly _entities: ReadonlyArray<Maybe<_Entity>>;
-  readonly _service: _Service;
-  /** Some type description */
-  readonly author: Author;
+  readonly currentNumber?: Maybe<Scalars['Int']>;
 };
 
-
-/** Some type description */
-export type Query_EntitiesArgs = {
-  representations: ReadonlyArray<Scalars['_Any']>;
+/** test */
+export type Subscription = {
+  readonly __typename?: 'Subscription';
+  /** test */
+  readonly numberIncremented?: Maybe<Scalars['Int']>;
 };
 
-export type _Entity = Author;
-
-export type _Service = {
-  readonly __typename?: '_Service';
-  readonly sdl?: Maybe<Scalars['String']>;
-};
-
-export type GetAuthorQueryVariables = Exact<{ [key: string]: never; }>;
+export type SubSubscriptionVariables = Exact<{ [key: string]: never; }>;
 
 
-export type GetAuthorQuery = { readonly __typename?: 'Query', readonly author: { readonly __typename?: 'Author', readonly id: string, readonly name?: string | null } };
+export type SubSubscription = { readonly __typename?: 'Subscription', readonly numberIncremented?: number | null };
 
 
-export const GetAuthorDocument = gql`
-    query GetAuthor {
-  author {
-    id
-    name
-  }
+export const SubDocument = gql`
+    subscription Sub {
+  numberIncremented
 }
     `;
 
 /**
- * __useGetAuthorQuery__
+ * __useSubSubscription__
  *
- * To run a query within a React component, call `useGetAuthorQuery` and pass it any options that fit your needs.
- * When your component renders, `useGetAuthorQuery` returns an object from Apollo Client that contains loading, error, and data properties
+ * To run a query within a React component, call `useSubSubscription` and pass it any options that fit your needs.
+ * When your component renders, `useSubSubscription` returns an object from Apollo Client that contains loading, error, and data properties
  * you can use to render your UI.
  *
- * @param baseOptions options that will be passed into the query, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
+ * @param baseOptions options that will be passed into the subscription, supported options are listed on: https://www.apollographql.com/docs/react/api/react-hooks/#options;
  *
  * @example
- * const { data, loading, error } = useGetAuthorQuery({
+ * const { data, loading, error } = useSubSubscription({
  *   variables: {
  *   },
  * });
  */
-export function useGetAuthorQuery(baseOptions?: Apollo.QueryHookOptions<GetAuthorQuery, GetAuthorQueryVariables>) {
+export function useSubSubscription(baseOptions?: Apollo.SubscriptionHookOptions<SubSubscription, SubSubscriptionVariables>) {
         const options = {...defaultOptions, ...baseOptions}
-        return Apollo.useQuery<GetAuthorQuery, GetAuthorQueryVariables>(GetAuthorDocument, options);
+        return Apollo.useSubscription<SubSubscription, SubSubscriptionVariables>(SubDocument, options);
       }
-export function useGetAuthorLazyQuery(baseOptions?: Apollo.LazyQueryHookOptions<GetAuthorQuery, GetAuthorQueryVariables>) {
-          const options = {...defaultOptions, ...baseOptions}
-          return Apollo.useLazyQuery<GetAuthorQuery, GetAuthorQueryVariables>(GetAuthorDocument, options);
-        }
-export type GetAuthorQueryHookResult = ReturnType<typeof useGetAuthorQuery>;
-export type GetAuthorLazyQueryHookResult = ReturnType<typeof useGetAuthorLazyQuery>;
-export type GetAuthorQueryResult = Apollo.QueryResult<GetAuthorQuery, GetAuthorQueryVariables>;
+export type SubSubscriptionHookResult = ReturnType<typeof useSubSubscription>;
+export type SubSubscriptionResult = Apollo.SubscriptionResult<SubSubscription>;

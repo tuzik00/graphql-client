@@ -22,13 +22,13 @@ const windowApolloState = !isServer && window.__NEXT_DATA__.apolloState;
 let client: ApolloClient<NormalizedCacheObject>;
 
 const httpLink = new HttpLink({
-  uri: APOLLO_GATEWAY_WS,
+  uri: APOLLO_GATEWAY,
 });
 
 const wsLink = !isServer
   ? new GraphQLWsLink(
     createClient({
-      url: APOLLO_GATEWAY,
+      url: APOLLO_GATEWAY_WS,
     })
   )
   : null;

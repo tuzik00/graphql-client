@@ -7,7 +7,6 @@
     ":timezone(Europe/London)"
   ],
   "packageRules": [
-    {
       {
       "matchPackagePatterns": ["*"],
       "matchUpdateTypes": ["minor", "patch"],
